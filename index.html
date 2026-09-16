@@ -4,10 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>0xtitan : Web3 BD & Community Manager</title>
-<meta name="description" content="0xtitan — Web3 Business Development & Community Manager. Degen. Builder. Shipper.">
+<meta name="description" content="0xTitan helps Web3 products grow active communities, build ecosystem partnerships, and turn technical products into narratives people understand.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="0xTitan — Web3 BD & Community Manager">
+<meta property="og:description" content="Community growth, ecosystem partnerships, campaigns, and developer activations for Web3 products.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="0xTitan — Web3 BD & Community Manager">
+<meta name="twitter:description" content="Community growth, ecosystem partnerships, campaigns, and developer activations for Web3 products.">
+<link rel="icon" href="Websitepfp.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "0xTitan",
+  "jobTitle": "Web3 Business Development and Community Manager",
+  "email": "mailto:titanstellar@gmail.com",
+  "sameAs": [
+    "https://twitter.com/0xtitan__",
+    "https://t.me/Nikhil511"
+  ]
+}
+</script>
 <style>
 :root {
   --black: #000000;
@@ -22,7 +43,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; cursor: none; }
+html { scroll-behavior: smooth; }
 body {
   background: var(--black);
   color: var(--white);
@@ -52,6 +73,20 @@ body {
 .cursor.hovering { width: 6px; height: 6px; }
 .cursor-ring.hovering { width: 60px; height: 60px; border-color: rgba(255,255,255,0.9); }
 
+@media (hover: hover) and (pointer: fine) {
+  html { cursor: none; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor-ring { display: none; }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
 /* NOISE */
 body::before {
   content: '';
@@ -60,48 +95,11 @@ body::before {
   opacity: 0.035; pointer-events: none; z-index: 9000;
 }
 
-/* LOADER */
-#loader {
-  position: fixed; inset: 0; background: var(--black); z-index: 8000;
-  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-#loader.hide { opacity: 0; visibility: hidden; }
-.loader-text {
-  font-family: var(--font-display);
-  font-size: clamp(60px, 12vw, 140px);
-  letter-spacing: 0.05em; color: var(--white); overflow: hidden;
-}
-.loader-text span {
-  display: inline-block;
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transform: translateY(110%);
-}
-.loader-bar-wrap { width: 200px; height: 1px; background: var(--grey-700); position: relative; overflow: hidden; }
-.loader-bar {
-  position: absolute; left: 0; top: 0; height: 100%; background: var(--white);
-  width: 0%; animation: loadBar 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-@keyframes loadBar { to { width: 100%; } }
-.loader-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--grey-400); text-transform: uppercase; }
-
 /* SCROLL PROGRESS */
 .scroll-progress {
   position: fixed; top: 0; left: 0; height: 2px;
   background: var(--white); width: 0%; z-index: 200; transition: width 0.05s linear;
 }
-
-/* TOAST */
-.toast {
-  position: fixed; bottom: 40px; left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--white); color: var(--black);
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 12px 24px; opacity: 0; transition: opacity 0.3s, transform 0.3s;
-  z-index: 500; pointer-events: none;
-}
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* NAV */
 nav {
@@ -115,6 +113,11 @@ nav {
 .nav-links a:hover { opacity: 1; }
 .nav-status { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--white); opacity: 0.6; }
 .status-dot { width: 6px; height: 6px; background: var(--white); border-radius: 50%; animation: pulse 2s ease infinite; }
+.nav-toggle {
+  display: none; border: 0; background: transparent; color: var(--white);
+  font: 500 11px/1 var(--font-mono); letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 8px 0; cursor: pointer;
+}
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
 /* =============================================
@@ -138,7 +141,7 @@ nav {
   justify-content: center;
   align-items: center;
   opacity: 0;
-  animation: fadeUp 0.9s 2.1s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: fadeUp 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 .hero-pfp-wrap {
@@ -219,7 +222,7 @@ nav {
   color: var(--grey-400);
   margin-bottom: 20px;
   opacity: 0;
-  animation: fadeUp 0.8s 2.0s forwards;
+  animation: fadeUp 0.8s 0.1s forwards;
 }
 
 .hero-title {
@@ -237,9 +240,9 @@ nav {
   transform: translateY(100%);
   animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.hero-title .line:nth-child(1) { animation-delay: 2s; }
-.hero-title .line:nth-child(2) { animation-delay: 2.1s; }
-.hero-title .line:nth-child(3) { animation-delay: 2.2s; }
+.hero-title .line:nth-child(1) { animation-delay: 0.15s; }
+.hero-title .line:nth-child(2) { animation-delay: 0.25s; }
+.hero-title .line:nth-child(3) { animation-delay: 0.35s; }
 .hero-title .italic {
   font-family: var(--font-italic);
   font-size: 0.72em;
@@ -249,14 +252,28 @@ nav {
 
 .hero-desc {
   font-family: var(--font-mono);
-  font-size: 12px;
-  line-height: 1.85;
-  color: var(--grey-400);
-  max-width: 380px;
-  margin-bottom: 32px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #aaa;
+  max-width: 520px;
+  margin-bottom: 28px;
   opacity: 0;
-  animation: fadeUp 0.8s 2.3s forwards;
+  animation: fadeUp 0.8s 0.35s forwards;
 }
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  opacity: 0; animation: fadeUp 0.8s 0.45s forwards;
+}
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 46px; padding: 0 20px; border: 1px solid var(--white);
+  color: var(--black); background: var(--white); text-decoration: none;
+  font: 500 11px/1 var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.button:hover { transform: translateY(-2px); }
+.button-secondary { color: var(--white); background: transparent; border-color: var(--grey-700); }
+.button-secondary:hover { color: var(--black); background: var(--white); border-color: var(--white); }
 
 .hero-stats {
   display: flex;
@@ -301,7 +318,7 @@ nav {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 0.12; } }
 
 /* SECTION SHARED */
-section { padding: 120px 40px; }
+section { padding: 96px 40px; }
 .section-label {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em;
   text-transform: uppercase; color: var(--grey-400); margin-bottom: 60px;
@@ -318,7 +335,7 @@ section { padding: 120px 40px; }
 .about-headline { font-family: var(--font-display); font-size: clamp(48px, 7vw, 100px); line-height: 0.9; letter-spacing: -0.01em; color: var(--black); }
 .about-headline em { font-family: var(--font-italic); font-style: italic; color: var(--grey-400); }
 .about-body { display: flex; flex-direction: column; gap: 32px; }
-.about-text { font-family: var(--font-mono); font-size: 13px; line-height: 1.9; color: var(--grey-700); }
+.about-text { font-family: var(--font-mono); font-size: 15px; line-height: 1.8; color: var(--grey-700); }
 .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--grey-100); color: var(--grey-700); }
 
@@ -335,7 +352,7 @@ section { padding: 120px 40px; }
 .exp-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--grey-400); padding-top: 4px; }
 .exp-company { font-family: var(--font-display); font-size: clamp(28px, 4vw, 52px); letter-spacing: 0.02em; color: var(--white); line-height: 1; margin-bottom: 8px; }
 .exp-role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 16px; }
-.exp-desc { font-family: var(--font-mono); font-size: 12px; line-height: 1.8; color: var(--grey-400); }
+.exp-desc { font-family: var(--font-mono); font-size: 14px; line-height: 1.75; color: #aaa; }
 .exp-metrics { display: flex; gap: 32px; margin-top: 20px; flex-wrap: wrap; }
 .metric { border-left: 1px solid var(--grey-700); padding-left: 16px; }
 .metric-val { font-family: var(--font-display); font-size: 28px; color: var(--white); line-height: 1; }
@@ -346,9 +363,10 @@ section { padding: 120px 40px; }
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-700); border: 1px solid var(--grey-700); }
 .project-card {
   background: var(--black); padding: 40px 32px;
-  position: relative; overflow: hidden; cursor: pointer;
+  position: relative; overflow: hidden;
   opacity: 0; transition: opacity 0.5s ease, background 0.3s ease;
 }
+.project-card-link { display: block; color: inherit; text-decoration: none; cursor: pointer; }
 .project-card.visible { opacity: 1; }
 .project-card:hover { background: var(--white); }
 .project-card:hover .project-name { color: var(--black); }
@@ -359,7 +377,10 @@ section { padding: 120px 40px; }
 .project-num { font-family: var(--font-display); font-size: 80px; color: transparent; -webkit-text-stroke: 1px var(--grey-700); line-height: 1; margin-bottom: 24px; transition: -webkit-text-stroke-color 0.3s; }
 .project-name { font-family: var(--font-display); font-size: clamp(22px, 2.5vw, 32px); letter-spacing: 0.02em; color: var(--white); margin-bottom: 6px; transition: color 0.3s; }
 .project-type { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 20px; transition: color 0.3s; }
-.project-desc { font-family: var(--font-mono); font-size: 12px; line-height: 1.7; color: var(--grey-400); transition: color 0.3s; }
+.project-desc { font-family: var(--font-mono); font-size: 14px; line-height: 1.7; color: #aaa; transition: color 0.3s; }
+.project-results { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; padding-right: 28px; }
+.project-result { border: 1px solid var(--grey-700); padding: 6px 9px; color: var(--grey-400); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s, border-color 0.3s; }
+.project-card:hover .project-result { color: var(--grey-700); border-color: var(--grey-100); }
 .project-arrow { position: absolute; bottom: 32px; right: 32px; font-size: 20px; color: var(--grey-700); transition: color 0.3s, transform 0.3s; }
 
 /* SKILLS */
@@ -386,7 +407,7 @@ section { padding: 120px 40px; }
 .contact { background: var(--black); }
 .contact-headline { font-family: var(--font-display); font-size: clamp(60px, 11vw, 160px); line-height: 0.88; letter-spacing: -0.01em; margin-bottom: 60px; }
 .contact-headline em { font-family: var(--font-italic); font-style: italic; color: var(--grey-400); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 760px); }
 .contact-links { display: flex; flex-direction: column; }
 .contact-link { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--grey-700); text-decoration: none; color: var(--white); transition: padding-left 0.3s ease; }
 .contact-link:hover { padding-left: 12px; }
@@ -403,14 +424,26 @@ section { padding: 120px 40px; }
 .copy-hint { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-700); margin-top: 4px; }
 
 /* FOOTER */
-footer { background: var(--black); border-top: 1px solid var(--grey-700); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
-.footer-copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--grey-700); }
-.footer-made { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--grey-700); }
+footer { background: var(--off-white); border-top: 1px solid var(--grey-100); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--black); }
+.footer-made { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--black); }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  nav { padding: 20px 24px; }
-  .nav-links { display: none; }
+  nav {
+    padding: 16px 24px; mix-blend-mode: normal;
+    background: rgba(0,0,0,0.94); backdrop-filter: blur(12px);
+  }
+  .nav-toggle { display: block; }
+  .nav-status { display: none; }
+  .nav-links {
+    display: none; position: absolute; top: 64px; left: 16px; right: 16px;
+    flex-direction: column; gap: 0; padding: 10px 20px;
+    background: var(--black); border: 1px solid var(--grey-700);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.65);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { display: block; padding: 14px 0; opacity: 0.9; }
   .hero { grid-template-columns: 1fr; padding: 100px 24px 48px; gap: 40px; }
   .hero-pfp-col { order: -1; }
   .hero-pfp-wrap { width: clamp(160px, 50vw, 260px); height: clamp(160px, 50vw, 260px); }
@@ -423,6 +456,16 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   footer { flex-direction: column; gap: 8px; text-align: center; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .skills-marquee { transform: none !important; }
+}
 </style>
 </head>
 <body>
@@ -431,36 +474,27 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<div id="loader">
-  <div class="loader-text">
-    <span style="animation-delay:0.1s">0</span><span style="animation-delay:0.15s">x</span><span style="animation-delay:0.2s">T</span><span style="animation-delay:0.25s">I</span><span style="animation-delay:0.3s">T</span><span style="animation-delay:0.35s">A</span><span style="animation-delay:0.4s">N</span>
-  </div>
-  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-  <div class="loader-label">Loading Profile...</div>
-</div>
-
-<div class="toast" id="toast">Copied to clipboard</div>
-
-<nav>
+<nav aria-label="Primary navigation">
   <a href="#" class="nav-logo">0xtitan__</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
   <div class="nav-status">
     <div class="status-dot"></div>
-    <span>Open to hire</span>
+    <span>Available for work</span>
   </div>
 </nav>
 <section class="hero">
-  <div class="hero-index">2025</div>
+  <div class="hero-index" aria-hidden="true">2026</div>
 
   <!-- LEFT: PFP / NFT image -->
   <div class="hero-pfp-col">
     <div class="hero-pfp-wrap">
-      <img src="Websitepfp.png" alt="0xTitan" class="hero-pfp">
+      <img src="Websitepfp.png" alt="Illustrated portrait of 0xTitan" class="hero-pfp" width="420" height="420">
     </div>
   </div>
 
@@ -472,7 +506,11 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
       <span class="line">0xtitan.</span>
       <span class="line italic">Builder.</span>
     </h1>
-    <p class="hero-desc">The missing link between your codebase and your culture. I translate complex protocols into degen movements. Not just a BD. Not just a CM. The hybrid engine your project needs.</p>
+    <p class="hero-desc">I help Web3 products grow active communities, build ecosystem partnerships, and turn technical products into narratives people understand.</p>
+    <div class="hero-actions">
+      <a class="button" href="#projects">View selected work <span aria-hidden="true">↓</span></a>
+      <a class="button button-secondary" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+    </div>
   </div>
 </section>
 
@@ -480,7 +518,7 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
 <section class="about" id="about">
   <div class="section-label"><span>001 / About</span></div>
   <div class="about-grid">
-    <div class="about-headline">Biz<br>Dev.<br><em>Community</em><br>Manager.</div>
+    <h2 class="about-headline">Biz<br>Dev.<br><em>Community</em><br>Manager.</h2>
     <div class="about-body">
       <p class="about-text">I live at the intersection of on-chain data and raw community energy. My background is split — half dev logic, half community soul — which means I can walk into a protocol meeting in the morning and moderate a Discord in chaos by afternoon.</p>
       <p class="about-text">I've spent 4+ years in the trenches: calling alpha, building narratives, running nodes, and keeping communities alive through bear markets. I've seen what makes Web3 projects survive — it's never just the tech.</p>
@@ -491,7 +529,7 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
         <span class="tag">Biz Dev</span>
         <span class="tag">Events and Hackathons Manager</span>
         <span class="tag">Node Architect</span>
-        <span class="tag">Airdrop Farmer</span>
+        <span class="tag">Growth Campaigns</span>
         <span class="tag">Ecosystem Partnerships</span>
       </div>
     </div>
@@ -500,24 +538,24 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
 
 <!-- EXPERIENCE -->
 <section class="experience" id="experience">
-  <div class="section-label"><span>002 / Experience</span></div>
+  <h2 class="section-label"><span>002 / Experience</span></h2>
   <div class="exp-items">
     <div class="exp-item reveal">
-      <div class="exp-year">2025 Dec — June 2026</div>
+      <div class="exp-year">Dec 2025 — Jun 2026</div>
       <div class="exp-content">
-        <div class="exp-company">Onchaindaily.io</div>
+        <h3 class="exp-company">Onchaindaily.io</h3>
         <div class="exp-role">CT & Campaign Manager </div>
         <p class="exp-desc">Led the community from zero to a thriving ecosystem. Built the voice of the Product from Discord strategy to Twitter/X narrative. Orchestrated the content calendar, moderation systems, and ambassador programs that kept the community engaged through volatile cycles.</p>
         <div class="exp-metrics">
-          <div class="metric"><div class="metric-val">6K+</div><div class="metric-label">Follower's</div></div>
+          <div class="metric"><div class="metric-val">6K+</div><div class="metric-label">Followers</div></div>
           <div class="metric"><div class="metric-val">3K+</div><div class="metric-label">Daily active users</div></div>
         </div>
       </div>
     </div>
     <div class="exp-item reveal">
-      <div class="exp-year">2025 Sep — 2026 Feb</div>
+      <div class="exp-year">Sep 2025 — Feb 2026</div>
       <div class="exp-content">
-        <div class="exp-company">Infstones.com</div>
+        <h3 class="exp-company">Infstones.com</h3>
         <div class="exp-role">Community Manager & Product Strategy </div>
         <p class="exp-desc">Developed an automated Discord and support system for Infstones.com, streamlining issue resolution and improving response times. Integrated multiple bots to optimize operational workflows, and proposed product revamp strategies to enhance the customer purchasing experience on the NaaS platform.</p>
         <div class="exp-metrics">
@@ -527,9 +565,9 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
       </div>
     </div>
     <div class="exp-item reveal">
-      <div class="exp-year">2024 Feb — 2026 Feb</div>
+      <div class="exp-year">Feb 2024 — Feb 2026</div>
       <div class="exp-content">
-        <div class="exp-company">Mintair.xyz</div>
+        <h3 class="exp-company">Mintair.xyz</h3>
         <div class="exp-role">Community Manager & Business Development</div>
         <p class="exp-desc">Led the community from zero to a thriving ecosystem. Built the voice of the protocol  from Discord strategy to Twitter/X narrative. Orchestrated the content calendar, moderation systems, and ambassador programs that kept the community engaged through volatile cycles.</p>
         <div class="exp-metrics">
@@ -543,39 +581,36 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
 
 <!-- PROJECTS -->
 <section class="projects" id="projects">
-  <div class="section-label"><span>003 / Projects</span></div>
+  <h2 class="section-label"><span>003 / Projects</span></h2>
   <div class="projects-grid">
-    <div class="project-card reveal">
+    <a class="project-card project-card-link reveal" href="https://team1india.vercel.app/public" target="_blank" rel="noopener noreferrer" aria-label="View AvaxTeam1 developer activations">
       <div class="project-num">01</div>
-      <div class="project-name">AvaxTeam1 Member</div>
+      <h3 class="project-name">AvaxTeam1 Member</h3>
       <div class="project-type">Dev Activations</div>
-      <p class="project-desc">Actively hosting monthly events to grow the Avalanche ecosystem in my region  from City Connects and Hackathons to Game Nights.</p>
-      <a href="https://team1india.vercel.app/public" target="_blank">
-      <div class="project-arrow">↗</div>
-      </a>
-    </div>
-    <div class="project-card reveal" style="transition-delay:0.1s">
+      <p class="project-desc">Host monthly developer and community events that grow the Avalanche ecosystem locally—from City Connects and hackathons to game nights.</p>
+      <div class="project-results"><span class="project-result">Monthly activations</span><span class="project-result">Avalanche ecosystem</span></div>
+      <div class="project-arrow" aria-hidden="true">↗</div>
+    </a>
+    <a class="project-card project-card-link reveal" href="https://x.com/0xtitan__/status/1938281763177918920?s=20" target="_blank" rel="noopener noreferrer" aria-label="View the Jupiter Hackathon project">
       <div class="project-num">02</div>
-      <div class="project-name">Jupiter Hackathon</div>
+      <h3 class="project-name">Jupiter Hackathon</h3>
       <div class="project-type">Hackathon</div>
-      <p class="project-desc">Hosted the first-ever Jupiter Hackathon in India, bringing together 220+ developers with a $3,000 prize pool from managing operations to taking the stage.</p>
-      <a href="https://x.com/0xtitan__/status/1938281763177918920?s=20" target="_blank">
-      <div class="project-arrow">↗</div>
-      </a>
-    </div>
+      <p class="project-desc">Produced India’s first Jupiter Hackathon, coordinating operations, promotion, and the live event for more than 220 developers.</p>
+      <div class="project-results"><span class="project-result">220+ developers</span><span class="project-result">$3K prize pool</span><span class="project-result">India's first</span></div>
+      <div class="project-arrow" aria-hidden="true">↗</div>
+    </a>
     <div class="project-card reveal" style="transition-delay:0.2s">
       <div class="project-num">03</div>
-      <div class="project-name">More coming soon.</div>
-      <div class="project-type">Bridging the gaps where it matters most.</div>
-      <p class="project-desc"> Will keep this updated as I drive growth, launch campaigns, or market new products. </p>
-      <div class="project-arrow">↗</div>
+      <h3 class="project-name">Currently building.</h3>
+      <div class="project-type">The next case study</div>
+      <p class="project-desc">Building the next community growth and ecosystem campaign. A full breakdown will be published here when the work is ready to share.</p>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
 <section class="skills" id="skills">
-  <div class="section-label"><span>004 / Stack</span></div>
+  <h2 class="section-label"><span>004 / Stack</span></h2>
   <div class="skills-marquee-wrap">
     <div class="skills-marquee">
       <span class="skills-marquee-item">Community Manager<span class="dot"> ✦ </span></span>
@@ -596,15 +631,15 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
   <h2 class="contact-headline">Let's<br><em>build</em><br>together.</h2>
   <div class="contact-grid">
     <div class="contact-links">
-      <a href="https://twitter.com/0xtitan__" target="_blank" class="contact-link">
+      <a href="https://twitter.com/0xtitan__" target="_blank" rel="noopener noreferrer" class="contact-link">
         <div class="contact-link-left"><span class="contact-link-platform">Twitter / X</span><span class="contact-link-handle">@0xtitan__</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
-      <a href="https://t.me/Nikhil511" target="_blank" class="contact-link">
+      <a href="https://t.me/Nikhil511" target="_blank" rel="noopener noreferrer" class="contact-link">
         <div class="contact-link-left"><span class="contact-link-platform">Telegram</span><span class="contact-link-handle">@Nikhil511</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
-      <a href="https://discord.gg/0xtitan__" target="_blank" class="contact-link">
+      <a href="https://discord.gg/0xtitan__" target="_blank" rel="noopener noreferrer" class="contact-link">
         <div class="contact-link-left"><span class="contact-link-platform">Discord Handle</span><span class="contact-link-handle">0xtitan__#3246</span></div>
         <span class="contact-link-arrow">↗</span>
       </a>
@@ -618,7 +653,7 @@ footer { background: var(--black); border-top: 1px solid var(--grey-700); paddin
 
 <footer>
   <div class="footer-copy">© 2026 0xTitan — All rights reserved.</div>
-  <div class="footer-made">Pressure is Privilage</div>
+  <div class="footer-made">Pressure is Privilege</div>
 </footer>
 
 <script>
@@ -640,8 +675,19 @@ document.querySelectorAll('a,button,.project-card,.skill-cell,.wallet-addr').for
   el.addEventListener('mouseleave',()=>{ cursor.classList.remove('hovering'); ring.classList.remove('hovering'); });
 });
 
-/* LOADER */
-window.addEventListener('load',()=>{ setTimeout(()=>document.getElementById('loader').classList.add('hide'),2200); });
+/* MOBILE NAV */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.textContent = isOpen ? 'Close' : 'Menu';
+});
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.textContent = 'Menu';
+}));
 
 /* SCROLL PROGRESS */
 window.addEventListener('scroll',()=>{
@@ -660,18 +706,6 @@ const observer = new IntersectionObserver(entries=>{
   });
 },{threshold:0.15});
 document.querySelectorAll('.reveal,.exp-item,.project-card,.skill-cell').forEach(el=>observer.observe(el));
-
-/* COPY */
-function copyAddr(addr){
-  navigator.clipboard.writeText(addr).catch(()=>{
-    const t=document.createElement('textarea');
-    t.value=addr; document.body.appendChild(t); t.select();
-    document.execCommand('copy'); document.body.removeChild(t);
-  });
-  const toast=document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(()=>toast.classList.remove('show'),2000);
-}
 </script>
 </body>
 </html>
